@@ -9,18 +9,26 @@
   <title>My django blog posts</title>
 </head>
 <body>
-  <div class="container text-center">
-    <h1>Blog Posts</h1>
-  </div>
-  <div class="container">
-    {% for post in posts %}
-      <div>
-        <h2>{{ post.title }}</h2>
-        <p>{{ post.text|linebreaks }}</p>
-        <p class="time_published">published: {{ post.published_date }}</p>
-        <p class="author_name">by {{ post.author }} </p>
+  <div class="page-header container-fluid">
+    <div class="row">
+      <div class="col-md-8">
+        <h1>Blog Posts</h1>
       </div>
-    {% endfor %}
+    </div>
+  </div>
+  <div class="content container">
+    <div class="row">
+      <div class="col-md-8">
+        {% for post in posts %}
+          <div class="post">
+            <h2>{{ post.title }}</h2>
+            <p>{{ post.text|linebreaks }}</p>
+            <p class="time_published">published: {{ post.published_date }}</p>
+            <p class="author_name">by {{ post.author }} </p>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
   </div>
 </body>
 </html>
