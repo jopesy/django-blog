@@ -1,34 +1,12 @@
-{% load staticfiles %}
-<!DOCTYPE html>
-<html>
-<head>
-  <!-- Bootstrap -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
-  <link rel="stylesheet" href="{% static 'css/blog.css' %}" />
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-  <title>My django blog posts</title>
-</head>
-<body>
-  <div class="page-header container-fluid">
-    <div class="row">
-      <div class="col-md-8">
-        <h1>Blog Posts</h1>
-      </div>
+{% extends 'blog/base.html' %}
+
+{% block content %}
+  {% for post in posts %}
+    <div class="post">
+      <h2><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h2>
+      <p>{{ post.text|linebreaks }}</p>
+      <p class="time_published">published: {{ post.published_date }}</p>
+      <p class="author_name">by {{ post.author }} </p>
     </div>
-  </div>
-  <div class="content container">
-    <div class="row">
-      <div class="col-md-8">
-        {% for post in posts %}
-          <div class="post">
-            <h2>{{ post.title }}</h2>
-            <p>{{ post.text|linebreaks }}</p>
-            <p class="time_published">published: {{ post.published_date }}</p>
-            <p class="author_name">by {{ post.author }} </p>
-          </div>
-        {% endfor %}
-      </div>
-    </div>
-  </div>
-</body>
-</html>
+  {% endfor %}
+{% endblock content %}
