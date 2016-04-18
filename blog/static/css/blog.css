@@ -8,11 +8,16 @@
 }
 .content{
   margin-left: 60px;
-  margin-right: 60px;
   padding-left:0;
-  padding-right:0;
+  padding-right:60px;
 }
-
+h1 a{
+  color: white;
+}
+h1 a:hover{
+  color: #999999;
+  text-decoration: none;
+}
 h2{
   color: #202080;
 }
@@ -25,4 +30,7 @@ h2{
 }
 .post{
   margin-bottom: 50px;
+}
+.post-form textarea, .post-form input{
+  width:100%;
 }
