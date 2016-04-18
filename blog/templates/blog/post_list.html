@@ -1,19 +1,24 @@
+{% load staticfiles %}
 <!DOCTYPE html>
 <html>
 <head>
+  <!-- Bootstrap -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="{% static 'css/blog.css' %}" />
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
   <title>My django blog posts</title>
 </head>
 <body>
-  <div>
-    <h1>Blog Posts here</h1>
+  <div class="container text-center">
+    <h1>Blog Posts</h1>
   </div>
-  <div>
+  <div class="container">
     {% for post in posts %}
       <div>
-        <h1>{{ post.title }}</h1>
+        <h2>{{ post.title }}</h2>
         <p>{{ post.text|linebreaks }}</p>
-        <p>published: {{ post.published_date }} <br />
-        by: {{ post.author }} </p>
+        <p class="time_published">published: {{ post.published_date }}</p>
+        <p class="author_name">by {{ post.author }} </p>
       </div>
     {% endfor %}
   </div>
