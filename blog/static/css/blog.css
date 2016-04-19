@@ -28,9 +28,17 @@ h2{
   margin-bottom:0px;
   color: #909090;
 }
+.time_edited{
+  margin-bottom:0px;
+  color: #909090;
+  font-style: italic;
+}
 .post{
   margin-bottom: 50px;
 }
 .post-form textarea, .post-form input{
   width:100%;
+}
+.button_edit{
+  display: inline;
 }

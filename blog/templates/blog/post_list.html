@@ -6,6 +6,9 @@
       <h2><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h2>
       <p>{{ post.text|linebreaks }}</p>
       <p class="time_published">published: {{ post.published_date }}</p>
+      {% if post.edited_date %}
+        <p class="time_edited">edited: {{ post.edited_date }}</p>
+      {% endif %}
       <p class="author_name">by {{ post.author }} </p>
     </div>
   {% endfor %}
