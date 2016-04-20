@@ -11,12 +11,23 @@
     </h2>
     <p> {{ post.text|linebreaks }} </p>
       {% if post.published_date %}
-        <p> {{ post.published_date }} </p>
+        <p class="time_published"> {{ post.published_date }} </p>
       {% else %}
         <a class="btn btn-default" href="{% url 'post_publish' pk=post.pk %}">Publish</a>
       {% endif %}
       {% if post.edited_date %}
-        <p>Edited {{ post.edited_date }} </p>
+        <p class="time_edited pull-right">Edited {{ post.edited_date }} </p>
       {% endif %}
+      <p class="author_name">by <strong>{{ post.author }}</strong> </p>
   </div>
+  {% for comment in post.comments.all %}
+    <hr>
+    <div class="comment">
+      <strong>{{ comment.author }}</strong><span class="time_published pull-right">{{ comment.created_date }}</span>
+      <p>{{ comment.text|linebreaks }}</p>
+    </div>
+  {% empty %}
+    <hr>
+    <p>No comments here yet</p>
+  {% endfor %}
 {% endblock %}

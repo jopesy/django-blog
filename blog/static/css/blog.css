@@ -41,5 +41,7 @@ h2{
 }
 .button_edit{
   display: inline;
-
+}
+.comment {
+    margin: 20px 0px 20px 20px;
 }
